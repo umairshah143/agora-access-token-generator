@@ -13,7 +13,7 @@ next();
 const generateAccessToken=(req,resp)=>{
 
     let APP_ID=req.query.appId;
-    if(!appId || appId==''){
+    if(!APP_ID || APP_ID==''){
         return resp.status(500).json({'error':'App Id is required!.'});
     }
 
