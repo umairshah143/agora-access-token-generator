@@ -1,8 +1,6 @@
 const express=require('express');
 const {RtcTokenBuilder,RtcRole}=require('agora-access-token');
 const PORT=process.env.PORT || 3000;
-const APP_ID='2021edf5165f4fcaa726b6ce2ddd6473';
-const APP_CERTIFICATE='ffcda30cc091470cac21cd535c21737d';
 const app=express();
 
 const nocache=(req,resp,next)=>{
@@ -13,6 +11,21 @@ next();
 }
 
 const generateAccessToken=(req,resp)=>{
+
+    let APP_ID=req.query.appId;
+    if(!appId || appId==''){
+        return resp.status(500).json({'error':'App Id is required!.'});
+    }
+
+    let APP_CERTIFICATE=req.query.appCertificate;
+    if(!APP_CERTIFICATE || APP_CERTIFICATE==''){
+        return resp.status(500).json({'error':'App Certificate is required!.'});
+    }
+
+
+
+
+
     //set response header
     resp.header('Access-Controll-Allow-Origion','*');
     //get channel name
