@@ -12,7 +12,8 @@ const nocache = (req, resp, next) => {
 
 const generateAccessToken = (req, resp) => {
   //Get Agora App Id
-  let APP_ID = req.query.appId
+  // let APP_ID = req.query.appId
+  let APP_ID = '82046c1c04bd4078880e28c6ec5862d7';
   if (!APP_ID || APP_ID == '') {
     return resp.status(500).json({ error: 'App Id is required!.' })
   }
